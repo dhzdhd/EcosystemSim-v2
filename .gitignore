@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/ecosystem-sim
+ecosystem-sim.so
+ecosystem-sim.dylib
+ecosystem-sim.dll
+ecosystem-sim.a
+ecosystem-sim.lib
+ecosystem-sim-test-*
+*.exe
+*.o
+*.obj
+*.lst

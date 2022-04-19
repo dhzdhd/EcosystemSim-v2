@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"deep"
+	],
+	"copyright": "Copyright © 2022, deep",
+	"dependencies": {
+		"bindbc-raylib3": "~>0.5.1"
+	},
+	"description": "An ecosystem simulation in raylib",
+	"license": "MIT",
+	"name": "ecosystem-sim"
+}
