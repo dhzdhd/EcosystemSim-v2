@@ -1,26 +1,31 @@
 module game;
 
 import bindbc.raylib;
+import consts;
 
-abstract interface IBlob
+enum BlobType
 {
-    int radius;
-    int strength; // Opacity
-    Color color;
+    passive,
+    aggressive,
+    diseased
+}
+
+struct Blob
+{
+    double energy; // Opacity
     Vector2 pos;
+    Vector2 vel;
+    BlobType type;
 }
 
-class PassiveBlob : IBlob
+void checkWallCollision(Blob blob)
 {
-    void name()
+    if (blob.pos.x > SCREEN_WIDTH || blob.pos.x < 0)
     {
-    };
-}
-
-class Food
-{
-}
-
-void checkWallCollision()
-{
+        blob.vel.x *= -1;
+    }
+    else if (blob.pos.y > SCREEN_HEIGHT || blob.pos.y < 0)
+    {
+        blob.vel.y *= -1;
+    }
 }

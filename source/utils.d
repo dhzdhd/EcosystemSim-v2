@@ -1,1 +1,6 @@
 module utils;
+
+int getRandomNumber()
+{
+
+}
