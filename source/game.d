@@ -4,6 +4,7 @@ import bindbc.raylib;
 import consts;
 import std.string : format;
 import std.stdio : writeln;
+import utils;
 
 enum BlobType
 {
@@ -33,21 +34,24 @@ void moveBlob(ref Blob blob)
     {
         blob.vel.y *= -1;
     }
+    else
+    {
+        blob.vel = getRandomVector(-1, 1, -1, 1);
+    }
 }
 
 void checkForCollision(Blob[] blobArr)
 {
-    foreach (i; blobArr)
+    foreach (ref i; blobArr)
     {
-        foreach (j; blobArr)
+        foreach (ref j; blobArr)
         {
-            if (CheckCollisionCircles(i.pos, BLOB_RADIUS, j.pos, BLOB_RADIUS))
+            if (CheckCollisionCircles(i.pos, BLOB_RADIUS, j.pos, BLOB_RADIUS) && i != j)
             {
-                writeln("Collided %s".format("e"));
-                i.vel.x *= 0;
-                i.vel.y *= 0;
-                j.vel.x *= 0;
-                j.vel.y *= 0;
+                i.vel.x *= -1;
+                i.vel.y *= -1;
+                j.vel.x *= -1;
+                j.vel.y *= -1;
             }
         }
     }

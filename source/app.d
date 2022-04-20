@@ -1,6 +1,7 @@
 import std.stdio;
 import std.range : repeat;
 import std.conv : to;
+import std.array;
 import bindbc.raylib;
 import game;
 import consts;
@@ -44,7 +45,7 @@ void main(string[] _)
          ClearBackground(BLACK);
          foreach (key; blobArr)
          {
-            DrawCircle(to!int(key.pos.x), to!int(key.pos.y), BLOB_RADIUS, GREEN);
+            DrawCircleLines(to!int(key.pos.x), to!int(key.pos.y), BLOB_RADIUS, GREEN);
          }
 
          EndDrawing();
