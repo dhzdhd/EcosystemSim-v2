@@ -18,6 +18,12 @@ template getRandomVector()
     }
 }
 
+Vector3 getRandomVector3D()
+{
+    return Vector3(uniform!"[]"(-(SCREEN_WIDTH / 2) + BLOB_RADIUS, SCREEN_WIDTH / 2 - BLOB_RADIUS), 5, uniform!"[]"(
+            -(SCREEN_HEIGHT / 2) + BLOB_RADIUS, SCREEN_HEIGHT / 2 - BLOB_RADIUS));
+}
+
 T getRandomValueT(T, S)(S a, S b)
 {
     return to!T(uniform!"[]"(a, b));
