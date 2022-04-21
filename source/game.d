@@ -17,14 +17,14 @@ struct Blob
 {
     double energy; // Opacity
     Vector3 pos;
-    Vector2 vel;
+    Vector3 vel;
     BlobType type;
 }
 
 void moveBlob(ref Blob blob)
 {
     blob.pos.x += blob.vel.x;
-    blob.pos.z += blob.vel.y;
+    blob.pos.z += blob.vel.z;
 
     if (blob.pos.x > SCREEN_WIDTH / 2 - BLOB_RADIUS || blob.pos.x < (-SCREEN_WIDTH / 2 + BLOB_RADIUS))
     {
@@ -33,7 +33,7 @@ void moveBlob(ref Blob blob)
     else if (blob.pos.z > SCREEN_HEIGHT / 2 - BLOB_RADIUS || blob.pos.z < (
             -SCREEN_HEIGHT / 2 + BLOB_RADIUS))
     {
-        blob.vel.y *= -1;
+        blob.vel.z *= -1;
     }
     else
     {
@@ -47,13 +47,13 @@ void checkForCollision(Blob[] blobArr)
     {
         foreach (ref j; blobArr)
         {
-            if (CheckCollisionCircles(Vector2(i.pos.x, i.pos.y), BLOB_RADIUS, Vector2(j.pos.x, j
-                    .pos.y), BLOB_RADIUS) && i != j)
+            if (CheckCollisionCircles(Vector2(i.pos.x, i.pos.z), BLOB_RADIUS, Vector2(j.pos.x, j
+                    .pos.z), BLOB_RADIUS) && i != j)
             {
                 i.vel.x *= -1;
-                i.vel.y *= -1;
+                i.vel.z *= -1;
                 j.vel.x *= -1;
-                j.vel.y *= -1;
+                j.vel.z *= -1;
             }
         }
     }

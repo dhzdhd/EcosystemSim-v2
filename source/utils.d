@@ -7,21 +7,16 @@ import std.conv : to;
 
 template getRandomVector()
 {
-    Vector2 getRandomVector(int a = SCREEN_WIDTH - BLOB_RADIUS, int b = SCREEN_HEIGHT - BLOB_RADIUS)
+    Vector3 getRandomVector()
     {
-        return Vector2(uniform!"[]"(0, a), uniform!"[]"(0, b));
+        return Vector3(uniform!"[]"(-(SCREEN_WIDTH / 2) + BLOB_RADIUS, SCREEN_WIDTH / 2 - BLOB_RADIUS), 5, uniform!"[]"(
+                -(SCREEN_HEIGHT / 2) + BLOB_RADIUS, SCREEN_HEIGHT / 2 - BLOB_RADIUS));
     }
 
-    Vector2 getRandomVector(int x1, int x2, int y1, int y2)
+    Vector3 getRandomVector(int x1, int x2, int z1, int z2)
     {
-        return Vector2(uniform!"[]"(x1, x2), uniform!"[]"(y1, y2));
+        return Vector3(uniform!"[]"(x1, x2), 5, uniform!"[]"(z1, z2));
     }
-}
-
-Vector3 getRandomVector3D()
-{
-    return Vector3(uniform!"[]"(-(SCREEN_WIDTH / 2) + BLOB_RADIUS, SCREEN_WIDTH / 2 - BLOB_RADIUS), 5, uniform!"[]"(
-            -(SCREEN_HEIGHT / 2) + BLOB_RADIUS, SCREEN_HEIGHT / 2 - BLOB_RADIUS));
 }
 
 T getRandomValueT(T, S)(S a, S b)

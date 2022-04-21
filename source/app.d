@@ -34,7 +34,7 @@ void main(string[] _)
       Blob[10] blobArr;
       for (int i = 0; i < 10; i++)
       {
-         blobArr[i] = Blob(100, getRandomVector3D(), getRandomVector(5, 5), BlobType
+         blobArr[i] = Blob(100, getRandomVector(), getRandomVector(-1, 1, -1, 1), BlobType
                .passive);
       }
 
@@ -60,7 +60,7 @@ void main(string[] _)
          foreach (ref key; blobArr)
          {
             DrawSphere(key.pos, BLOB_RADIUS, GREEN);
-            DrawSphereWires(key.pos, BLOB_RADIUS, 5, 5, GREEN);
+            // DrawSphereWires(key.pos, BLOB_RADIUS, 1, 5, GREEN);
          }
          DrawGrid(50, 10.0f);
 
